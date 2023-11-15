@@ -1,0 +1,27 @@
+import dev.fumin.dependencies.Dep
+
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath Dep.Plugin.SpringBoot.core
+        classpath Dep.Plugin.SpringBoot.dependencyManagement
+        classpath Dep.Plugin.GraalVM.plugin
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

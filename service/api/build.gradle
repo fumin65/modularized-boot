@@ -1,0 +1,23 @@
+import dev.fumin.dependencies.Dep
+
+apply plugin: "java"
+apply plugin: Dep.Plugin.SpringBoot.Id.core
+apply plugin: Dep.Plugin.SpringBoot.Id.dependencyManagement
+apply plugin: Dep.Plugin.GraalVM.id
+
+group = 'dev.fumin'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+dependencies {
+    implementation project(":framework")
+    implementation project(":usecase:command:todo")
+    implementation project(":usecase:query:todo")
+}
+
+tasks.named('bootJar') {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}

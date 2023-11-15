@@ -1,0 +1,14 @@
+import dev.fumin.dependencies.Dep
+
+apply plugin: "java-library"
+apply plugin: Dep.Plugin.SpringBoot.Id.core
+apply plugin: Dep.Plugin.SpringBoot.Id.dependencyManagement
+
+java {
+    sourceCompatibility = '17'
+}
+
+dependencies {
+    api project(":framework")
+}
+

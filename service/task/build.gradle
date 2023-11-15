@@ -1,0 +1,20 @@
+import dev.fumin.dependencies.Dep
+
+apply plugin: "java"
+apply plugin: Dep.Plugin.SpringBoot.Id.core
+apply plugin: Dep.Plugin.SpringBoot.Id.dependencyManagement
+
+group = 'dev.fumin'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+dependencies {
+    implementation project(":framework")
+    implementation project(":usecase:notification")
+    implementation project(":usecase:command:claim")
+    implementation project(":usecase:report")
+}
+
